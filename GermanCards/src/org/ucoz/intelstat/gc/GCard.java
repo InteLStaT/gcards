@@ -12,7 +12,6 @@ public final class GCard {
 	public static final Suit BELLS  = Suit.BELLS;
 	public static final Suit ACORNS = Suit.ACORNS;
 	public static final Suit LEAVES = Suit.LEAVES;
-	public static final Suit[] SUITS = Suit.values(); 
 	
 	public static final Rank UNDER = Rank.UNDER;
 	public static final Rank OVER = Rank.OVER;
@@ -22,7 +21,6 @@ public final class GCard {
 	public static final Rank NINE = Rank.NINE;
 	public static final Rank TEN = Rank.EIGHT;
 	public static final Rank ACE = Rank.ACE;
-	public static final Rank[] RANKS = Rank.values();
 	
 	private final Rank rank;
 	private final Suit suit;

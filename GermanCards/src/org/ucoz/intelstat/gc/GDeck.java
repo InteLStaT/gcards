@@ -46,8 +46,8 @@ public class GDeck {
 	 */
 	public static GDeck orderedDeck() {
 		GDeck deck = new GDeck(DECK_MAX_SIZE);
-		for (GCard.Suit suit : GCard.SUITS) {
-			for (GCard.Rank rank : GCard.RANKS) {
+		for (GCard.Suit suit : GCard.Suit.values()) {
+			for (GCard.Rank rank : GCard.Rank.values()) {
 				deck.deck.add(new GCard(rank, suit));
 			}
 		}
