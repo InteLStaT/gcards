@@ -19,6 +19,7 @@ public class GDeck {
 
 	private final int initSize;
 	private int size;
+	private int prevSize;
 	private int dealtCardCt = 0;
 	private List<GCard> deck;
 
@@ -90,8 +91,9 @@ public class GDeck {
 	 * @return the card on top of the deck
 	 */
 	public GCard dealCard() {
-		dealtCardCt++;
-		if (dealtCardCt <= initSize) {
+		if (dealtCardCt < initSize) {
+			dealtCardCt++;
+			prevSize = size;
 			size = initSize - dealtCardCt;
 			return deck.get(initSize - dealtCardCt);
 		} else {
@@ -103,8 +105,14 @@ public class GDeck {
 	 * Deals a specified number of cards to the specified hand.
 	 */
 	public void dealTo(GHand hand, int number) {
-		for (int i = 0; i < number; i++) {
-			hand.addCard(dealCard());
+		if (number < size) {
+			for (int i = 0; i < number; i++) {
+				hand.addCard(dealCard());
+			}
+			prevSize = size + number;
+		}
+		else {
+			throw new IllegalArgumentException("Not enough cards in deck");
 		}
 	}
 
